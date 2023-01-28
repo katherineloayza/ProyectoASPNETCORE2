@@ -1,0 +1,71 @@
+﻿@model IEnumerable<ProyectoTransitoCoreMVC.Models.Papeleta>
+
+@{
+    ViewData["Title"] = "ListarPapeletas";
+}
+
+<h1>ListarPapeletas</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Fechapap)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pagado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fechapago)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Eliminado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodinfNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodpolNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NroplaNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fechapap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pagado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fechapago)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Eliminado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodinfNavigation.Codinf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodpolNavigation.Codpol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NroplaNavigation.Nropla)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Nropap">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Nropap">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Nropap">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
